@@ -1,0 +1,5 @@
+ci-example-project
+cover.html
+cover.out
+go_vet.txt
+golint.txt
