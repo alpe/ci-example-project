@@ -12,7 +12,7 @@ import (
 var version string // application version, is set during compilation time
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, "Welcome! %s\n", version)
+	fmt.Fprint(w, fmt.Sprintf("Welcome! %s\n", version))
 }
 
 func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
