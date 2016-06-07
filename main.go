@@ -9,8 +9,10 @@ import (
 	"runtime"
 )
 
+var version string // application version, is set during compilation time
+
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprint(w, "Welcome! v0.0.6\n")
+	fmt.Fprint(w, "Welcome! %s\n", version)
 }
 
 func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
