@@ -16,11 +16,12 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "Hello, %s!\n", ps.ByName("name"))
+	fmt.Fprintf(w, "Hello, %s!%s\n", ps.ByName("name")) // missing parameter: should be detected by go vet
 }
 
 func HealthCheck(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("ok")) // error ignored: should be detected by errcheck
 }
 
 func main() {
